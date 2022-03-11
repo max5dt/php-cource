@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-function addDigits(int $a) : int
+function addDigits(int $a): int
 {
 	$sum = 0;
 	while (intdiv($a, 10) > 0)  {
