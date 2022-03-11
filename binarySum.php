@@ -8,3 +8,4 @@ function binarySum(string $num1, string $num2): string
 
 print_r(binarySum('10', '1') . "\n");
 print_r(binarySum('1101', '101') . "\n");
+
