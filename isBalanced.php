@@ -8,4 +8,3 @@ function isBalanced(string $str): bool
     }
     return $str === '';
 }
-
