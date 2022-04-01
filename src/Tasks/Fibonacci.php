@@ -20,4 +20,3 @@ class Fibonacci
         return $fibCurrent;
     }
 }
-
