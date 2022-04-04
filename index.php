@@ -15,5 +15,3 @@ try {
 } catch (\Throwable $e) {
     echo 'Global exception'. $e->getMessage(). PHP_EOL;
 }
-
-exit;

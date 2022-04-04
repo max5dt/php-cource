@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace MyApp\Tasks;
 
-use http\Exception\InvalidArgumentException;
-
 class BalancedBrackets
 {
     public function isBalanced(string $str): bool
