@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MyApp\Tasks;
@@ -7,7 +8,7 @@ class PerfectNumber
 {
     public function isPerfect(int $num): bool
     {
-        if ( $num < 0 ) {
+        if ($num < 0) {
             throw new \InvalidArgumentException('Error: a positive number should be used');
         }
 

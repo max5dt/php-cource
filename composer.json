@@ -1,0 +1,14 @@
+{
+    "name": "mkrasikov/php-cource",
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src/"
+        }
+    },
+    "require": {
+        "squizlabs/php_codesniffer": "*"
+    },
+    "scripts": {
+        "lint": "phpcs --standard=PSR12 ./src"
+    }
+}

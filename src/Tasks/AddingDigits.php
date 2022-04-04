@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MyApp\Tasks;
@@ -9,7 +10,7 @@ class AddingDigits
 {
     public function addDigits(int $a): int
     {
-        if ( $a < 0 ) {
+        if ($a < 0) {
             throw new \InvalidArgumentException('Error: a positive number should be used');
         }
 

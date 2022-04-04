@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MyApp\Tasks;
@@ -7,7 +8,7 @@ class PowerOfThree
 {
     public function isPowerOfThree(int $a): bool
     {
-        if ( $a < 0 ) {
+        if ($a < 0) {
             throw new \InvalidArgumentException('Error: a positive number should be used');
         }
 
