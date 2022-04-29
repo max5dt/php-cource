@@ -30,7 +30,7 @@ class FizzBuzzTest extends TestCase
             [-1, 0, '-1 FizzBuzz'],
             [0, 0, 'FizzBuzz'],
             [1, 1, '1'],
-            [1, 0, '']
+            [1, 0, ''],
         ];
     }
 }

@@ -28,7 +28,7 @@ class FibonacciTest extends TestCase
             [3, 2],
             [5, 5],
             [10, 55],
-            [15, 610]
+            [15, 610],
         ];
     }
 
@@ -39,6 +39,6 @@ class FibonacciTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Error: a positive number should be used');
 
-        $test -> fib(-123);
+        $test->fib(-123);
     }
 }

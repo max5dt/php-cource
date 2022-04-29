@@ -33,7 +33,7 @@ class PowerOfThreeTest extends TestCase
             [1, true],
             [0, false],
             [7, false],
-            [8100, false]
+            [8100, false],
         ];
     }
 
@@ -44,6 +44,6 @@ class PowerOfThreeTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Error: a positive number should be used');
 
-        $test -> isPowerOfThree(-123);
+        $test->isPowerOfThree(-123);
     }
 }

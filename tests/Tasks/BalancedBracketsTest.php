@@ -59,7 +59,7 @@ class BalancedBracketsTest extends TestCase
             ['((|))'],
             ['true'],
             ['((()))]'],
-            ['{}']
+            ['{}'],
         ];
     }
 }

@@ -48,7 +48,7 @@ class BinarySumTest extends TestCase
         return [
             ['110', ''],
             ['', '11'],
-            ['', '',]
+            ['', '',],
         ];
     }
 
@@ -71,7 +71,7 @@ class BinarySumTest extends TestCase
             ['0', '-0'],
             ['22', '12.4',],
             ['-4', '-4*5',],
-            ['a', '%%',]
+            ['a', '%%',],
         ];
     }
 }

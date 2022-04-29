@@ -33,7 +33,7 @@ class AddingDigitsTest extends TestCase
             [101, 2],
             [505, 1],
             [9008, 8],
-            [1023421342135213, 1]
+            [1023421342135213, 1],
         ];
     }
 
@@ -44,6 +44,6 @@ class AddingDigitsTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Error: a positive number should be used');
 
-        $test -> addDigits(-123);
+        $test->addDigits(-123);
     }
 }

@@ -32,7 +32,7 @@ class PerfectNumberTest extends TestCase
             [1, false],
             [0, false],
             [7, false],
-            [8100, false]
+            [8100, false],
         ];
     }
 
@@ -43,6 +43,6 @@ class PerfectNumberTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Error: a positive number should be used');
 
-        $test -> isPerfect(-123);
+        $test->isPerfect(-123);
     }
 }

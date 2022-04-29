@@ -34,7 +34,7 @@ class HappyNumberTest extends TestCase
             ["1222", false],
             ["13", false],
             ["1", false],
-            ["10", false]
+            ["10", false],
         ];
     }
 
@@ -68,7 +68,7 @@ class HappyNumberTest extends TestCase
             ['23$21'],
             ['%14'],
             ['eighteen'],
-            ['']
+            [''],
         ];
     }
 }
