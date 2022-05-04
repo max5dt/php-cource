@@ -8,7 +8,7 @@ class FileLogger extends AbstractLogger
 
     public function __construct(string $filename)
     {
-        $this->$filename = $filename;
+        $this->filename = $filename;
     }
 
     protected function log(string $message): void

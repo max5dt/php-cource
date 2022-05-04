@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Tasks;
 
+use MyApp\Logger\FakeLogger;
 use MyApp\Tasks\BinarySum;
 use PHPUnit\Framework\TestCase;
 
@@ -14,11 +15,17 @@ class BinarySumTest extends TestCase
      */
     public function testBinarySum(string $num1, string $num2, string $expected): void
     {
-        $test = new BinarySum();
+        $logger = new FakeLogger();
+        $test = new BinarySum($logger);
 
         self::assertEquals(
             $expected,
             $test->binarySum($num1, $num2)
+        );
+
+        self::assertEquals(
+            "[INFO] Sum of " . $num1 . " and " . $num2 . " is " . $expected,
+            $logger->getLastMessage()
         );
     }
 
@@ -36,11 +43,17 @@ class BinarySumTest extends TestCase
      */
     public function testBinarySumEmptyArgument(string $num1, string $num2): void
     {
-        $test = new BinarySum();
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Error: Empty input');
+        $logger = new FakeLogger();
+        $test = new BinarySum($logger);
 
-        $test->binarySum($num1, $num2);
+        try {
+            $test->binarySum($num1, $num2);
+        } catch (\Throwable $e) {
+            self::assertInstanceOf(\InvalidArgumentException::class, $e);
+            self::assertEquals('Error: Empty input', $e->getMessage());
+        }
+
+        self::assertEquals("[ERR] Empty input", $logger->getLastMessage());
     }
 
     public function binarySumEmptyArgumentDataProvider(): array
@@ -57,11 +70,17 @@ class BinarySumTest extends TestCase
      */
     public function testBinarySumWrongArgument(string $num1, string $num2): void
     {
-        $test = new BinarySum();
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Error: Not a binary number');
+        $logger = new FakeLogger();
+        $test = new BinarySum($logger);
 
-        $test->binarySum($num1, $num2);
+        try {
+            $test->binarySum($num1, $num2);
+        } catch (\Throwable $e) {
+            self::assertInstanceOf(\InvalidArgumentException::class, $e);
+            self::assertEquals('Error: Not a binary number', $e->getMessage());
+        }
+
+        self::assertEquals("[ERR] Not a binary number", $logger->getLastMessage());
     }
 
     public function binarySumWrongArgumentDataProvider(): array

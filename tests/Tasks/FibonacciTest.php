@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Tasks;
 
+use MyApp\Logger\FakeLogger;
 use MyApp\Tasks\Fibonacci;
 use PHPUnit\Framework\TestCase;
 
@@ -14,11 +15,17 @@ class FibonacciTest extends TestCase
      */
     public function testFib(int $num, int $expected): void
     {
-        $test = new Fibonacci();
+        $logger = new FakeLogger();
+        $test = new Fibonacci($logger);
 
         self::assertEquals(
             $expected,
             $test->fib($num)
+        );
+
+        self::assertEquals(
+            "[INFO] Fibonacci number #" . $num . " is " . $expected,
+            $logger->getLastMessage()
         );
     }
 
@@ -34,11 +41,17 @@ class FibonacciTest extends TestCase
 
     public function testFibInvalidArgument(): void
     {
-        $test = new Fibonacci();
+        $logger = new FakeLogger();
+        $test = new Fibonacci($logger);
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Error: a positive number should be used');
 
-        $test->fib(-123);
+        try {
+            $test->fib(-123);
+        } catch (\Throwable $e) {
+            self::assertInstanceOf(\InvalidArgumentException::class, $e);
+            self::assertEquals('Error: a positive number should be used', $e->getMessage());
+        }
+
+        self::assertEquals("[ERR] A positive number should be used", $logger->getLastMessage());
     }
 }

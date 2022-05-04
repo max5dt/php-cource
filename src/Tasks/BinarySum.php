@@ -10,7 +10,6 @@ use MyApp\Logger\StdoutLogger;
 
 class BinarySum
 {
-
     private $logger;
 
     public function __construct(LoggerInterface $logger)
@@ -21,11 +20,11 @@ class BinarySum
     public function binarySum(string $num1, string $num2): string
     {
         if ($num1 === "" || $num2 === "") {
-            $this->logger->err('Log - Empty input');
+            $this->logger->err('Empty input');
             throw new \InvalidArgumentException('Error: Empty input');
         }
         if (((preg_match('~^[01]+$~', $num1)) === 0) || ((preg_match('~^[01]+$~', $num2)) === 0)) {
-            $this->logger->err('Log - Not a binary number');
+            $this->logger->err('Not a binary number');
             throw  new \InvalidArgumentException('Error: Not a binary number');
         }
 

@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 
-//error_reporting(0);
+error_reporting(0);
 
-$stdoutLogger = new \MyApp\Logger\StdoutLogger();
-$fileLogger = new \MyApp\Logger\FileLogger(__DIR__ . '/log.txt');
+$config = require __DIR__ . '/config.php';
 
-(new \MyApp\Tasks\BinarySum($fileLogger))->binarySum('1', '');
+$loggerFactory = new \MyApp\Logger\LoggerFactory($config);
+$logger = $loggerFactory->createLogger();
 
-(new \MyApp\Tasks\BinarySum($fileLogger))->binarySum('1', '2');
+(new \MyApp\Tasks\BinarySum($logger))->binarySum('1', '10');
+(new \MyApp\Tasks\BinarySum($logger))->binarySum('1', '');
+(new \MyApp\Tasks\BinarySum($logger))->binarySum('1', '2');
+
+(new \MyApp\Tasks\Fibonacci($logger))->fib(7);
 
 exit;
 

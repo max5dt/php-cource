@@ -20,5 +20,4 @@ abstract class AbstractLogger implements LoggerInterface
     {
         $this->log('[INFO] ' . $message);
     }
-
 }
